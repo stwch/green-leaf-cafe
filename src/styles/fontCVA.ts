@@ -43,6 +43,20 @@ export const fontCVA = cva({
         fontSize: '.875rem',
         lineHeight: '1.75',
       },
+      eventInfoItem: {
+        fontFamily: 'GenJyuuGoXP-M',
+        fontSize: '.875rem',
+      },
+      eventContent: {
+        fontFamily: 'GenJyuuGoXP-R',
+        fontSize: '.875rem',
+        lineHeight: '1.75',
+      },
+      eventFormInfo: {
+        fontFamily: 'GenJyuuGoXP-R',
+        fontSize: '.875rem',
+        lineHeight: '1.75',
+      },
     },
     link: {
       feature: {
@@ -92,6 +106,9 @@ export const fontCVA = cva({
       setMenuChoice: {
         fontFamily: 'GenJyuuGoXP-M',
         fontSize: '.875rem',
+      },
+      form: {
+        fontFamily: 'GenJyuuGoXP-M',
       },
     },
     ui: {

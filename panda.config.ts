@@ -31,6 +31,7 @@ export default defineConfig({
         text: { value: '#333' },
         saturday: { value: 'hsl(210, {colors.saturation}, 35%)' },
         sunday: { value: 'hsl(340, {colors.saturation}, 35%)' },
+        bonus: { value: 'hsl(0, {colors.saturation}, 50%)' },
       },
       spacing: {
         menuBtnTopPos: { value: '.375rem' },
@@ -44,6 +45,7 @@ export default defineConfig({
       },
       shadows: {
         card: { value: '1px 2px 2px rgba(0, 0, 0, .1), 1px 2px 4px rgba(0, 0, 0, .5)' },
+        btn: { value: '1px 2px 2px rgba(0, 0, 0, .1), 1px 2px 4px rgba(0, 0, 0, .5)' },
       },
       assets: {
         bgPatternImg: { value: 'url(/images/leaf-pattern.png)' },

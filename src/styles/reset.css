@@ -106,7 +106,7 @@
 
   input,
   textarea {
-    caret-color: #ccc;
+    caret-color: #333;
   }
 
   input:focus,
