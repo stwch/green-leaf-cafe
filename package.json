@@ -5,13 +5,12 @@
   "scripts": {
     "prepare": "panda codegen",
     "dev": "panda codegen && next dev",
-    "build": "panda codegen && next build && pnpm sub && code dist",
+    "build": "panda codegen && next build &&  code dist",
     "clean": "rmdir /s /q dist",
     "dev_clean": "pnpm clean && pnpm dev",
     "build_clean": "pnpm clean && pnpm build",
     "start": "next start",
-    "lint": "next lint",
-    "sub": "ts-node subfont.ts"
+    "lint": "next lint"
   },
   "dependencies": {
     "@nanostores/react": "^0.8.4",
