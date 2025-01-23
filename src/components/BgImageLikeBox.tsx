@@ -11,6 +11,8 @@ export default function BgImageLikeBox<T extends ElementType>({
   as,
   src,
   alt,
+  width,
+  height,
   priority,
   boxClassName,
   imgClassName,
@@ -31,6 +33,8 @@ export default function BgImageLikeBox<T extends ElementType>({
       <Image
         alt={alt}
         src={src}
+        width={width}
+        height={height}
         className={cx(
           imgClassName,
           css({
