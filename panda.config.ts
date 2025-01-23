@@ -36,7 +36,7 @@ export default defineConfig({
       spacing: {
         menuBtnTopPos: { value: '.375rem' },
         row: {
-          section: { DEFAULT: { value: '2.5rem' }, tab: { value: '5rem' } },
+          section: { DEFAULT: { value: '5rem' }, tab: { value: '5rem' } },
           body: { DEFAULT: { value: '.5rem' }, object: { value: '.75rem' } },
         },
         inner: {
