@@ -17,7 +17,6 @@ import { css, cx } from '@styled-system/css';
 import { fontCVA } from '@styles/fontCVA';
 import { spaceCVA } from '@styles/spaceCVA';
 import '../../../../public/fonts/fontface/Anzu.css';
-import '../../../../public/fonts/fontface/GenJyuuGoXP-R.css';
 
 export default function EventIdPage() {
   const isoDateString = '2025-02-01';
@@ -28,6 +27,7 @@ export default function EventIdPage() {
   const eventInfoItems = ['定員：10名', '参加費：3000円'];
   return (
     <section>
+      <LazyLoadFontFace fontName="GenJyuuGoXP-R" />
       <LazyLoadFontFace fontName="GenJyuuGoXP-M" />
       <LazyLoadFontFace fontName="LovelyJackie" />
 
@@ -64,28 +64,6 @@ export default function EventIdPage() {
             自分で作った料理を試食し、オーガニック食材の魅力を体験できます。
           </Body>
         </FeatureSection>
-        {/* <FeatureSection
-          isJP
-          title="開催情報"
-          className={spaceCVA({ row: 'section' })}>
-          <div
-            className={cx(
-              spaceCVA({ inner: 'x' }),
-              css({
-                d: 'grid',
-                gridTemplateColumns: 'auto 1fr',
-                columnGap: '.5rem',
-                alignItems: 'end',
-              }),
-            )}>
-            <EventDate
-              viewHeader
-              isoDateString={isoDateString}
-              time={time}
-            />
-            <WithLeafList texts={eventInfoItems} />
-          </div>
-        </FeatureSection> */}
         <FeatureSection
           isJP
           title="内容"
