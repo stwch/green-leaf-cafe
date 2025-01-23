@@ -1,19 +1,22 @@
 'use client';
-import ArticleLink from '@components/ArticleLink';
+import ArticleLink, { type ArticleData } from '@components/ArticleLink';
 import { css, cx } from '@styled-system/css';
 import 'swiper/css';
 import { Mousewheel, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-interface Props extends React.ComponentPropsWithoutRef<'div'> {}
-export default function ArticleSlider({ className }: Props) {
+interface Props extends React.ComponentPropsWithoutRef<'div'> {
+  sliderID: string;
+  articles: ArticleData[];
+}
+export default function ArticleSlider({ className, articles, sliderID }: Props) {
   return (
     <div className={className}>
       <Swiper
         modules={[Pagination, Mousewheel]}
         pagination={{
           type: 'bullets',
-          el: '.pagination',
+          el: `.${sliderID}`,
           clickable: true,
           bulletClass: css({
             d: 'inline-block',
@@ -41,19 +44,19 @@ export default function ArticleSlider({ className }: Props) {
           px: '{spacing.inner.x}',
           mb: '4px',
         })}>
-        {[1, 2, 3, 4].map(num => {
+        {articles.map((article, i) => {
           return (
             <SwiperSlide
-              key={num}
+              key={i}
               tag="li">
-              <ArticleLink />
+              <ArticleLink article={article} />
             </SwiperSlide>
           );
         })}
       </Swiper>
       <div
         className={cx(
-          'pagination',
+          sliderID,
           css({
             mt: '{spacing.inner.x}',
             textAlign: 'center',

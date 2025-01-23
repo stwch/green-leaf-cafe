@@ -1,10 +1,27 @@
 import ArticleLabel from '@components/ArticleLabel';
 import BgImageLikeBox from '@components/BgImageLikeBox';
-import eventImg from '@images/catch/event-cooking.webp';
 import { css, cx } from '@styled-system/css';
 
-interface Props extends React.ComponentPropsWithoutRef<'a'> {}
-export default function ArticleLink({ className }: Props) {
+export interface ArticleData {
+  title: string;
+  category: {
+    label: string;
+    color?: 'main' | 'brown';
+  };
+  thumb: {
+    url: string;
+    alt: string;
+    width: `${number}` | number;
+    height: `${number}` | number;
+  };
+}
+interface Props extends React.ComponentPropsWithoutRef<'a'> {
+  article: ArticleData;
+}
+export default function ArticleLink({ className, article }: Props) {
+  const { title, category, thumb } = article;
+  const color = category.color;
+  const isMainColor = color === 'main' || color === undefined;
   return (
     <a
       href="#"
@@ -12,7 +29,7 @@ export default function ArticleLink({ className }: Props) {
         className,
         css({
           d: 'grid',
-          bo: '1px solid {colors.main}',
+          bo: isMainColor ? '1px solid {colors.main}' : '1px solid {colors.brown}',
           radius: '4px',
           boxShadow: '{shadows.card}',
           overflow: 'hidden',
@@ -20,8 +37,10 @@ export default function ArticleLink({ className }: Props) {
       )}>
       <BgImageLikeBox
         as="span"
-        alt="記事のリンク"
-        src={eventImg}
+        alt={thumb.alt}
+        src={thumb.url}
+        width={thumb.width}
+        height={thumb.height}
         boxClassName={cx(
           className,
           css({
@@ -31,7 +50,7 @@ export default function ArticleLink({ className }: Props) {
           }),
         )}>
         <ArticleLabel
-          isThin
+          color={category.color}
           className={css({
             radius: '0 0 0 4px',
             pos: 'absolute',
@@ -39,10 +58,10 @@ export default function ArticleLink({ className }: Props) {
             right: '0',
             zIndex: '1',
           })}>
-          イベント
+          {category.label}
         </ArticleLabel>
       </BgImageLikeBox>
-      <ArticleLabel>料理教室開催のおしらせ</ArticleLabel>
+      <ArticleLabel color={category.color}>{title}</ArticleLabel>
     </a>
   );
 }
