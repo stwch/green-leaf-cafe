@@ -120,6 +120,14 @@ export default function SiteMenuBody({ className }: Props) {
                 isCurrent={firstSegment === 'events'}
               />
             </li>
+            <li className={css({ '&+&': { mt: '1.5rem' } })}>
+              <NavLink
+                href="/blog"
+                label="ブログ"
+                SVGComponent={LeafSVG}
+                isCurrent={firstSegment === 'blog'}
+              />
+            </li>
           </ul>
         </div>
       </div>
