@@ -31,6 +31,16 @@ export const fontCVA = cva({
         fontFamily: 'GenJyuuGoXP-M',
         lineHeight: '1.5',
       },
+      articleTitle: {
+        fontFamily: 'Anzu',
+        fontSize: '2.5rem',
+        lineHeight: '1.25',
+      },
+      articleSection: {
+        fontFamily: 'Anzu',
+        fontSize: '2.5rem',
+        lineHeight: '1.25',
+      },
     },
     body: {
       page: {
@@ -56,6 +66,11 @@ export const fontCVA = cva({
         fontFamily: 'GenJyuuGoXP-R',
         fontSize: '.875rem',
         lineHeight: '1.75',
+      },
+      article: {
+        fontFamily: 'GenJyuuGoXP-R',
+        fontSize: '.875rem',
+        lineHeight: '2',
       },
     },
     link: {
@@ -109,6 +124,10 @@ export const fontCVA = cva({
       },
       form: {
         fontFamily: 'GenJyuuGoXP-M',
+      },
+      articleDate: {
+        fontFamily: 'GenJyuuGoXP-R',
+        fontSize: '.75erem',
       },
     },
     ui: {

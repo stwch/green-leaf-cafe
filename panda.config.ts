@@ -37,7 +37,15 @@ export default defineConfig({
         menuBtnTopPos: { value: '.375rem' },
         row: {
           section: { DEFAULT: { value: '5rem' }, tab: { value: '5rem' } },
-          body: { DEFAULT: { value: '.5rem' }, object: { value: '.75rem' } },
+          body: {
+            DEFAULT: { value: '.5rem' },
+            object: { value: '.75rem' },
+            article: { value: '1rem' },
+          },
+          blog: {
+            body: { value: '1rem' },
+            object: { value: '1.5rem' },
+          },
         },
         inner: {
           x: { value: '.5rem' },

@@ -1,7 +1,7 @@
 import { useStore } from '@nanostores/react';
 import { map } from 'nanostores';
 
-export type MenuTypes = 'site';
+export type MenuTypes = 'site' | 'blog';
 
 export const menuOpenStore = map<Record<MenuTypes, Boolean>>();
 

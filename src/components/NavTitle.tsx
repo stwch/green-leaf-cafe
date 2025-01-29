@@ -11,8 +11,7 @@ export default function NavTitle({ className, label }: Props) {
         className,
         fontCVA({ title: 'menu' }),
         css({
-          color: '{colors.base}',
-          bb: '1px solid {colors.base}',
+          bb: '1px solid currentcolor',
           mb: '1.5rem',
         }),
       )}>

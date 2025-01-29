@@ -1,35 +1,52 @@
 import AccessSection from '@components/AccessSection';
+import BlogMenuBody from '@components/BlogMenuBody';
 import Footer from '@components/Footer';
 import MenuBtn from '@components/MenuBtn';
 import SiteMenuBody from '@components/SiteMenuBody';
-import { css } from '@styled-system/css';
+import { css, cx } from '@styled-system/css';
 import type { ReactNode } from 'react';
 
 interface Props {
   children: ReactNode;
+  isBlog?: boolean;
 }
-export default function InnerSiteLayout({ children }: Props) {
+export default function InnerSiteLayout({ children, isBlog }: Props) {
   return (
     <>
       <MenuBtn
         menuType="site"
         btnType="open"
-        className={css({
-          pos: 'fixed',
-          top: '{spacing.menuBtnTopPos}',
-          right: '0',
-          zIndex: '1000',
-          tab: {
-            d: 'none',
-          },
-        })}
+        className={cx(
+          !isBlog && css({ tab: { d: 'none' } }),
+          css({
+            pos: 'fixed',
+            top: '{spacing.menuBtnTopPos}',
+            right: '0',
+            zIndex: '1000',
+          }),
+        )}
       />
+      {isBlog && (
+        <MenuBtn
+          menuType="blog"
+          btnType="open"
+          className={css({
+            minToTab: {
+              pos: 'fixed',
+              bottom: '{spacing.menuBtnTopPos}',
+              right: '0',
+              zIndex: '1000',
+            },
+            tab: { d: 'none' },
+          })}
+        />
+      )}
       <div
         className={css({
           tab: {
             w: '100%',
             d: 'grid',
-            gridTemplateColumns: '1fr minmax(0, {breakpoints.pc}) 1fr',
+            gridTemplateColumns: 'minmax(0, 1fr) minmax(0, {breakpoints.pc}) 1fr',
             justifyContent: 'center',
             pos: 'relative',
             '&::before': {
@@ -39,23 +56,58 @@ export default function InnerSiteLayout({ children }: Props) {
           },
         })}>
         <SiteMenuBody
-          className={css({
-            minToTab: {
-              pos: 'fixed',
-              top: '0',
-              right: '0',
-              zIndex: '1000',
-            },
-            tab: {
-              justifySelf: 'stretch',
-              maxH: '100vh',
-              pos: 'sticky',
-              top: '0',
-              right: '0',
-              order: '2',
-            },
-          })}
+          className={cx(
+            isBlog
+              ? css({
+                  d: 'none',
+                  pos: 'fixed',
+                  top: '0',
+                  right: '0',
+                  zIndex: '1000',
+                })
+              : css({
+                  d: 'none',
+                  minToTab: {
+                    pos: 'fixed',
+                    top: '0',
+                    right: '0',
+                    zIndex: '1000',
+                    maxW: '200px',
+                  },
+                  tab: {
+                    d: 'block',
+                    justifySelf: 'stretch',
+                    maxH: '100vh',
+                    pos: 'sticky',
+                    top: '0',
+                    right: '0',
+                    order: '2',
+                  },
+                }),
+          )}
         />
+        {isBlog && (
+          <BlogMenuBody
+            className={css({
+              minToTab: {
+                d: 'none',
+                pos: 'fixed',
+                top: '0',
+                right: '0',
+                zIndex: '1000',
+              },
+              tab: {
+                d: 'block',
+                justifySelf: 'stretch',
+                maxH: '100vh',
+                pos: 'sticky',
+                top: '0',
+                right: '0',
+                order: '2',
+              },
+            })}
+          />
+        )}
         <div
           className={css({
             maxW: '{breakpoints.pc}',

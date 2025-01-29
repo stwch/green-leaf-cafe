@@ -1,10 +1,12 @@
 import BgImageLikeBox from '@components/BgImageLikeBox';
 import Body from '@components/Body';
+import CategoryLink from '@components/CategoryLink';
 import FeatureSection from '@components/FeatureSection';
 import InnerSiteLayout from '@components/InnerSiteLayout';
 import LazyLoadFontFace from '@components/LazyLoadFontFace';
 import MoreArticleLink from '@components/MoreArticleLink';
 import LeafSVG from '@components/svg/LeafSVG';
+import createArticleData from '@helpers/createArticleData';
 import cookingIMG from '@images/catch/event-cooking.webp';
 import cafeAppearanceIMG from '@images/main-v/cafe-appearance.webp';
 import tarutoIMG from '@images/menu/tart-winter.webp';
@@ -13,7 +15,6 @@ import { fontCVA } from '@styles/fontCVA';
 import { spaceCVA } from '@styles/spaceCVA';
 import dynamic from 'next/dynamic';
 import '../../../public/fonts/fontface/Anzu.css';
-import createArticleData from '../../helpers/createArticleData';
 
 const LazyLoadArticleSlider = dynamic(() => import('@components/AriticleSlider'));
 
@@ -94,32 +95,11 @@ export default function EventsPage() {
               return (
                 <li
                   key={label}
-                  className={css({
-                    d: 'grid',
-                    gridTemplateColumns: 'auto auto',
-                    columnGap: '.5rem',
-                    w: 'fit-content',
-                    bgColor: '{colors.brown}',
-                    radius: '4px',
-                    fontFamily: 'GenJyuuGoXP-R',
-                    lineHeight: '1.5',
-                    color: '{colors.base}',
-                    pd: '.25rem .5rem',
-                  })}>
-                  {label}
-                  <span
-                    className={css({
-                      d: 'block',
-                      aspectRatio: '1/1',
-                      color: '{colors.brown}',
-                      fontFamily: 'GenJyuuGoXP-M',
-                      lineHeight: '1.5',
-                      bgColor: '{colors.base}',
-                      radius: '100px',
-                      textAlign: 'center',
-                    })}>
-                    {count}
-                  </span>
+                  className={css({ w: 'fit-content' })}>
+                  <CategoryLink
+                    label={label}
+                    count={count}
+                  />
                 </li>
               );
             })}

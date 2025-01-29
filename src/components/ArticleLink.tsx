@@ -24,7 +24,7 @@ export default function ArticleLink({ className, article }: Props) {
   const isMainColor = color === 'main' || color === undefined;
   return (
     <a
-      href="#"
+      href="/blog/to-id"
       className={cx(
         className,
         css({

@@ -1,4 +1,5 @@
 'use client';
+import blogMenuSVG from '@images/icon/blog.svg';
 import closeSVG from '@images/icon/close.svg';
 import siteMenuSVG from '@images/icon/site-menu.svg';
 import { css, cx } from '@styled-system/css';
@@ -38,8 +39,7 @@ export default function MenuBtn({ className, menuType, btnType }: Props) {
         <span
           className={css({
             d: 'block',
-            textAlign: 'right',
-            pr: '3px',
+            textAlign: 'center',
           })}>
           {label}
         </span>
@@ -48,18 +48,36 @@ export default function MenuBtn({ className, menuType, btnType }: Props) {
   );
 }
 
+interface BtnProps {
+  iconData: ReturnType<typeof getImageProps>['props'];
+  label: string;
+}
 function _getIcon(menuType: MenuTypes, isOpenBtn: boolean) {
-  const commonAlt = isOpenBtn ? 'メニューを開く' : 'メニューを閉じる';
-  const closeBtn = {
-    iconData: getImageProps({ src: closeSVG, alt: `サイト${commonAlt}` }).props,
+  if (!menuType) throw new Error('menuType は必須です');
+
+  const closeBtn: BtnProps = {
+    iconData: getImageProps({ src: closeSVG, alt: 'メニューを閉じる' }).props,
     label: '閉じる',
   };
-  if (menuType === 'site') {
-    const openBtn = {
-      iconData: getImageProps({ src: siteMenuSVG, alt: `サイト${commonAlt}` }).props,
-      label: 'メニュー',
-    };
-    return isOpenBtn ? openBtn : closeBtn;
+  const openBtn = _createOpenBtn(menuType);
+
+  return isOpenBtn ? openBtn : closeBtn;
+}
+
+function _createOpenBtn(menuType: MenuTypes): BtnProps {
+  const commonAlt = 'メニューを開く';
+  switch (menuType) {
+    case 'site': {
+      return {
+        iconData: getImageProps({ src: siteMenuSVG, alt: `サイト${commonAlt}` }).props,
+        label: 'メニュー',
+      };
+    }
+    case 'blog': {
+      return {
+        iconData: getImageProps({ src: blogMenuSVG, alt: `ブログ${commonAlt}` }).props,
+        label: 'カテゴリ',
+      };
+    }
   }
-  throw new Error('menuType は必須です');
 }

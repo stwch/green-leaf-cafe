@@ -20,6 +20,7 @@
     ],
     "paths": {
       "@styles/*": ["./src/styles/*"],
+      "@helpers/*": ["./src/helpers/*"],
       "@images/*": ["./src/images/*"],
       "@styled-system/*": ["./styled-system/*"],
       "@my-type/*": ["./src/types/*"],
