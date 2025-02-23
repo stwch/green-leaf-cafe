@@ -13,6 +13,7 @@ import '../../../public/fonts/fontface/LovelyJackie.css';
 export default function EventsPage() {
   return (
     <section>
+      <LazyLoadFontFace fontName="GenJyuuGoXP-L" />
       <LazyLoadFontFace fontName="GenJyuuGoXP-R" />
       <LazyLoadFontFace fontName="GenJyuuGoXP-M" />
 

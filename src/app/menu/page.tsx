@@ -14,7 +14,6 @@ import '../../../public/fonts/fontface/LovelyJackie.css';
 export default function MenuPage() {
   return (
     <section>
-      <LazyLoadFontFace fontName="GenJyuuGoXP-L" />
       <LazyLoadFontFace fontName="GenJyuuGoXP-R" />
       <LazyLoadFontFace fontName="Anzu" />
 

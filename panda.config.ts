@@ -20,18 +20,26 @@ export default defineConfig({
     },
     semanticTokens: {
       colors: {
-        saturation: { value: '30%' },
+        saturation: { value: '35%' },
         main: {
-          DEFAULT: { value: 'hsl(120, {colors.saturation}, 50%)' },
+          DEFAULT: { value: 'hsl(120, {colors.saturation}, 45%)' },
           thin: { value: 'hsl(120, {colors.saturation}, 80%)' },
         },
-        brown: { value: 'hsl(30, {colors.saturation}, 35%)' },
-        base: { value: 'hsl(30, {colors.saturation}, 75%)' },
-        accent: { value: 'hsl(0, {colors.saturation}, 50%)' },
-        text: { value: '#333' },
-        saturday: { value: 'hsl(210, {colors.saturation}, 35%)' },
-        sunday: { value: 'hsl(340, {colors.saturation}, 35%)' },
-        bonus: { value: 'hsl(0, {colors.saturation}, 50%)' },
+        brown: {
+          DEFAULT: { value: 'hsl(30, {colors.saturation}, 30%)' },
+          shadow: { value: 'hsl(30, {colors.saturation}, 15%)' },
+        },
+        base: {
+          DEFAULT: { value: 'hsl(30, {colors.saturation}, 75%)' },
+        },
+        accent: {
+          DEFAULT: { value: 'hsl(0, {colors.saturation}, 45%)' },
+          shadow: { value: 'hsl(0, {colors.saturation}, 30%)' },
+        },
+        text: { value: '#1f1f1f' },
+        saturday: { value: 'hsl(210, {colors.saturation}, 30%)' },
+        sunday: { value: 'hsl(340, {colors.saturation}, 30%)' },
+        bonus: { value: 'hsl(0, {colors.saturation}, 45%)' },
       },
       spacing: {
         menuBtnTopPos: { value: '.375rem' },
@@ -54,6 +62,14 @@ export default defineConfig({
       shadows: {
         card: { value: '1px 2px 2px rgba(0, 0, 0, .1), 1px 2px 4px rgba(0, 0, 0, .5)' },
         btn: { value: '1px 2px 2px rgba(0, 0, 0, .1), 1px 2px 4px rgba(0, 0, 0, .5)' },
+        text: {
+          brown: {
+            value: '0 0 1px {colors.brown.shadow}, 0 0 1px {colors.brown.shadow}, 0 0 4px {colors.brown.shadow}',
+          },
+          accent: {
+            value: '0 0 1px {colors.accent.shadow}, 0 0 1px {colors.accent.shadow}, 0 0 4px {colors.accent.shadow}',
+          },
+        },
       },
       assets: {
         bgPatternImg: { value: 'url(/images/leaf-pattern.png)' },

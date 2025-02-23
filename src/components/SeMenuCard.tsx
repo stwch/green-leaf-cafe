@@ -45,6 +45,7 @@ export default function SetMenuCard<T extends ElementType>({
         className={cx(
           fontCVA({ label: 'setMenuName' }),
           css({
+            textShadow: '{shadows.text.brown}',
             mb: '.625rem',
           }),
         )}>
@@ -55,6 +56,7 @@ export default function SetMenuCard<T extends ElementType>({
           fontCVA({ label: 'setMenuInfo' }),
           css({
             mb: '.25rem',
+            textShadow: '{shadows.text.brown}',
           }),
         )}>
         \各種お好きなものをお選びいただけます/
@@ -79,7 +81,15 @@ export default function SetMenuCard<T extends ElementType>({
           );
         })}
       </ul>
-      <p className={fontCVA({ label: 'setMenuPrice' })}>{price}</p>
+      <p
+        className={cx(
+          fontCVA({ label: 'setMenuPrice' }),
+          css({
+            textShadow: '{shadows.text.brown}',
+          }),
+        )}>
+        {price}
+      </p>
     </Tag>
   );
 }

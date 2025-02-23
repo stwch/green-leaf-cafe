@@ -43,6 +43,7 @@ export default function MenuCard({
           className={cx(
             css({
               color: '{colors.base}',
+              textShadow: '{shadows.text.brown}',
               pos: 'absolute',
               top: '0',
               left: '0',
@@ -58,6 +59,7 @@ export default function MenuCard({
           className={cx(
             css({
               color: '{colors.base}',
+              textShadow: '{shadows.text.brown}',
               pos: 'absolute',
               bottom: '0',
               left: '0',

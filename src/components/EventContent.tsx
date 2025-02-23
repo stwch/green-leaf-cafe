@@ -13,6 +13,7 @@ export default function EventContent({ children, className, isBonus }: Props) {
           bl: '2px solid {colors.main}',
           color: '{colors.base}',
           bgColor: isBonus ? '{colors.bonus}' : '{colors.brown}',
+          textShadow: isBonus ? '{shadows.text.accent}' : '{shadows.text.brown}',
         }),
       )}>
       {children}

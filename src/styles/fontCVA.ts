@@ -112,7 +112,7 @@ export const fontCVA = cva({
         fontSize: '1.125rem',
       },
       setMenuInfo: {
-        fontFamily: 'GenJyuuGoXP-L',
+        fontFamily: 'GenJyuuGoXP-R',
         fontSize: '.875rem',
       },
       setMenuPrice: {
