@@ -89,7 +89,7 @@ export default function EventIdPage() {
                   <EventContent
                     isBonus={isBonus}
                     className={cx(fontCVA({ body: 'eventContent' }), css({ pd: '.25rem .75rem' }))}>
-                    {text}
+                    <p>{text}</p>
                   </EventContent>
                 </li>
               );
@@ -113,6 +113,7 @@ export default function EventIdPage() {
               const alt = '過去開催の様子';
               return (
                 <BgImageLikeBox
+                  key={i}
                   as="li"
                   src={img}
                   alt={`${alt}${i}`}
@@ -153,7 +154,10 @@ export default function EventIdPage() {
               return (
                 <li key={i}>
                   <EventContent>
-                    <div className={css({ pd: '.5rem .75rem' })}>
+                    <div
+                      className={css({
+                        pd: '.5rem .75rem',
+                      })}>
                       <p
                         className={cx(
                           css({
@@ -173,7 +177,7 @@ export default function EventIdPage() {
         </FeatureSection>
         <FeatureSection
           isJP
-          title="お申込み"
+          title="お申し込み"
           className={spaceCVA({ row: 'section' })}>
           <div className={spaceCVA({ inner: 'x' })}>
             <div
