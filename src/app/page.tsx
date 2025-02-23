@@ -33,11 +33,23 @@ export default function Home() {
         alt="GreenLeafCafeの外観"
         src={cafeAppearanceIMG}
         boxClassName={css({
-          h: { base: 'calc(100svh - 5rem)', tab: 'calc(100svh - 6rem)' },
+          h: { base: 'calc(100svh - 5rem)', tab: 'calc(100svh - 3rem)' },
+          '&::after': {
+            content: '""',
+            d: 'block',
+            w: '115%',
+            h: '30%',
+            bgColor: '{colors.base}',
+            radius: '100%',
+            pos: 'absolute',
+            left: '50%',
+            bottom: '0',
+            transform: 'translate(-50%, 50%)',
+          },
         })}
         imgClassName={css({
           pc: {
-            top: '10%',
+            top: '-10%',
           },
         })}
       />
@@ -46,27 +58,10 @@ export default function Home() {
           spaceCVA({ row: 'section' }),
           css({
             w: 'fit-content',
+            mt: { base: '-3rem', tab: '-5rem' },
             mx: 'auto',
-            mt: '-3rem',
-            pt: { base: '1rem', tab: '1.5rem' },
-            tab: {
-              pl: '2.5rem',
-            },
-            radius: '100% 100% 0 0',
-            overflow: 'hidden',
             pos: 'relative',
             zIndex: '1',
-            '&::before': {
-              content: '""',
-              d: 'block',
-              w: '100%',
-              h: '3.1rem',
-              bgColor: '{colors.base}',
-              pos: 'absolute',
-              top: '0',
-              left: '0',
-              zIndex: '-1',
-            },
           }),
         )}
       />

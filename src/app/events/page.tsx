@@ -28,15 +28,12 @@ export default function EventsPage() {
           top: { tab: '15%', pc: '55%' },
         })}
       />
-      <PageTitle
-        pageName="Events"
-        className={spaceCVA({ row: 'section' })}
-      />
+      <PageTitle pageName="Events" />
       <InnerSiteLayout>
         <FeatureSection
           title="今月の開催予定"
           isJP
-          className={spaceCVA({ row: 'section' })}>
+          className={spaceCVA({ row: 'firstSection' })}>
           <div
             className={cx(
               spaceCVA({ inner: 'x' }),

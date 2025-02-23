@@ -7,6 +7,7 @@ import FeatureSection from '@components/FeatureSection';
 import InnerSiteLayout from '@components/InnerSiteLayout';
 import LazyLoadFontFace from '@components/LazyLoadFontFace';
 import MoreArticleLink from '@components/MoreArticleLink';
+import LeafSVG from '@components/svg/LeafSVG';
 import createArticleData from '@helpers/createArticleData';
 import cookStartIMG from '@images/catch/cooking-start.webp';
 import cookingIMG from '@images/catch/event-cooking.webp';
@@ -68,17 +69,16 @@ export default function BlogIdPage() {
           isoDateString="2025-01-30"
         />
       </div>
-      {/* <LeafSVG
+      <LeafSVG
         className={css({
           color: '{colors.main}',
           d: 'block',
           w: '2rem',
-          // mx: 'auto',
-          ml: '33%',
+          mx: 'auto',
           my: '{spacing.row.section}',
         })}
-      /> */}
-      <InnerSiteLayout isBlog>
+      />
+      <InnerSiteLayout isBlogMenu>
         <div className={spaceCVA({ inner: 'x', row: 'section' })}>
           <ArticleBody>
             こんにちは！グリーンリーフカフェです

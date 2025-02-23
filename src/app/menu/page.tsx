@@ -22,6 +22,8 @@ export default function MenuPage() {
         alt="パスタ、タルト、ドリンクが並んだ写真"
         src={menuIMG}
         boxClassName={css({
+          d: 'flex',
+          alignItems: 'end',
           h: '66.6vh',
         })}
         imgClassName={css({
@@ -30,14 +32,12 @@ export default function MenuPage() {
           },
         })}
       />
-      <PageTitle
-        pageName="Menu"
-        className={spaceCVA({ row: 'section' })}
-      />
+      <PageTitle pageName="Menu" />
+
       <InnerSiteLayout>
         <FeatureSection
           title="Foods"
-          className={spaceCVA({ row: 'section' })}>
+          className={spaceCVA({ row: 'firstSection' })}>
           <MenuSlider sliderID="foods" />
         </FeatureSection>
         <FeatureSection

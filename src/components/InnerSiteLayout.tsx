@@ -8,16 +8,19 @@ import type { ReactNode } from 'react';
 
 interface Props {
   children: ReactNode;
-  isBlog?: boolean;
+  isBlogMenu?: boolean;
+  isBlogTopPage?: boolean;
+  underJPPageTitle?: boolean;
 }
-export default function InnerSiteLayout({ children, isBlog }: Props) {
+export default function InnerSiteLayout({ children, isBlogMenu, underJPPageTitle, isBlogTopPage }: Props) {
+  const isBlogPage = isBlogMenu || isBlogTopPage;
   return (
     <>
       <MenuBtn
         menuType="site"
         btnType="open"
         className={cx(
-          !isBlog && css({ tab: { d: 'none' } }),
+          !isBlogMenu && css({ tab: { d: 'none' } }),
           css({
             pos: 'fixed',
             top: '{spacing.menuBtnTopPos}',
@@ -26,7 +29,7 @@ export default function InnerSiteLayout({ children, isBlog }: Props) {
           }),
         )}
       />
-      {isBlog && (
+      {isBlogMenu && (
         <MenuBtn
           menuType="blog"
           btnType="open"
@@ -42,22 +45,25 @@ export default function InnerSiteLayout({ children, isBlog }: Props) {
         />
       )}
       <div
-        className={css({
-          tab: {
-            w: '100%',
-            d: 'grid',
-            gridTemplateColumns: 'minmax(0, 1fr) minmax(0, {breakpoints.pc}) 1fr',
-            justifyContent: 'center',
-            pos: 'relative',
-            '&::before': {
-              content: '""',
-              d: 'block',
+        className={cx(
+          !isBlogPage && css({ mt: underJPPageTitle ? '-1.625rem' : '-1.75rem' }),
+          css({
+            tab: {
+              w: '100%',
+              d: 'grid',
+              gridTemplateColumns: 'minmax(0, 1fr) minmax(0, {breakpoints.pc}) 1fr',
+              justifyContent: 'center',
+              pos: 'relative',
+              '&::before': {
+                content: '""',
+                d: 'block',
+              },
             },
-          },
-        })}>
+          }),
+        )}>
         <SiteMenuBody
           className={cx(
-            isBlog
+            isBlogMenu
               ? css({
                   d: 'none',
                   pos: 'fixed',
@@ -86,7 +92,7 @@ export default function InnerSiteLayout({ children, isBlog }: Props) {
                 }),
           )}
         />
-        {isBlog && (
+        {isBlogMenu && (
           <BlogMenuBody
             className={css({
               minToTab: {

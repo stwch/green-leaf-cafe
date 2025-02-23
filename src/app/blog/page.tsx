@@ -30,13 +30,12 @@ export default function EventsPage() {
         alt="GreenLeafCafeの外観"
         src={cafeAppearanceIMG}
         boxClassName={cx(
-          spaceCVA({ row: 'section' }),
           css({
             h: '66.6vh',
           }),
         )}
       />
-      <InnerSiteLayout>
+      <InnerSiteLayout isBlogTopPage>
         <section className={spaceCVA({ row: 'section', inner: 'x' })}>
           <h1 className={cx(fontCVA({ title: 'pageJP' }), spaceCVA({ row: 'section' }))}>
             自然とつながる

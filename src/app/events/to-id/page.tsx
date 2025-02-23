@@ -42,16 +42,16 @@ export default function EventIdPage() {
           top: { tab: '15%', pc: '55%' },
         })}
       />
+      {/* <PageTitle pageName="Event Details" /> */}
       <PageTitle
         isJP
         pageName="イベント詳細"
-        className={spaceCVA({ row: 'section' })}
       />
-      <InnerSiteLayout>
+      <InnerSiteLayout underJPPageTitle>
         <SectionTitle
           isJP
           withLeaf={false}
-          className={spaceCVA({ row: 'section', inner: 'x' })}>
+          className={spaceCVA({ row: 'firstSectionJP', inner: 'x' })}>
           地元野菜を楽しむ料理教室
         </SectionTitle>
         <FeatureSection
