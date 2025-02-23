@@ -49,7 +49,7 @@ export default function Home() {
         })}
         imgClassName={css({
           pc: {
-            top: '-10%',
+            top: '-5%',
           },
         })}
       />
@@ -58,7 +58,7 @@ export default function Home() {
           spaceCVA({ row: 'section' }),
           css({
             w: 'fit-content',
-            mt: { base: '-3rem', tab: '-5rem' },
+            mt: { base: '-3rem', tab: '-4rem' },
             mx: 'auto',
             pos: 'relative',
             zIndex: '1',
@@ -70,7 +70,7 @@ export default function Home() {
           className={cx(
             spaceCVA({ row: 'section', inner: 'x' }),
             css({
-              tab: {
+              pc: {
                 d: 'grid',
                 gridTemplateColumns: 'repeat(3, auto)',
                 pos: 'relative',
@@ -82,15 +82,15 @@ export default function Home() {
             src={cafeInternalIMG}
             className={css({
               overflow: 'hidden',
-              radius: { base: '100% 100% 0 0', tab: '4px 0 0 0' },
+              radius: { base: '100% 100% 0 0', pc: '4px 0 0 0' },
             })}
           />
           <Body
             className={cx(
               spaceCVA({ inner: 'x' }),
               css({
-                py: { minToTab: '.5rem' },
-                tab: {
+                py: { minToPc: '.5rem' },
+                pc: {
                   w: '66%',
                   radius: '100px 100px 0 0',
                   overflow: 'hidden',
@@ -121,7 +121,7 @@ export default function Home() {
             src={farmersIMG}
             className={css({
               overflow: 'hidden',
-              radius: { base: '0 0 100% 100%', tab: '0 4px 0 0' },
+              radius: { base: '0 0 100% 100%', pc: '0 4px 0 0' },
             })}
           />
         </div>
@@ -129,7 +129,7 @@ export default function Home() {
           className={cx(
             spaceCVA({ row: 'section' }),
             css({
-              tab: {
+              pc: {
                 d: 'grid',
                 gridTemplateColumns: 'repeat(2, 1fr)',
               },
@@ -138,10 +138,10 @@ export default function Home() {
           <FeatureSection
             title="Menu"
             className={css({
-              minToTab: {
+              minToPc: {
                 mb: '{spacing.row.section}',
               },
-              tab: {
+              pc: {
                 d: 'grid',
                 gridTemplateRows: 'auto 1fr',
               },
