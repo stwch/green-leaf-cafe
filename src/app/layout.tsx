@@ -12,7 +12,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html
       lang="ja"
       className={css({
-        '&:has(nav[data-menu-open])': { overflow: 'hidden' },
+        '&:has(nav[data-menu-open], dialog[open])': { overflow: 'hidden' },
       })}>
       <body
         className={css({
@@ -35,7 +35,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         })}>
         <main
           className={css({
-            tab: { radius: '4px' },
             pos: 'relative',
             zIndex: '1',
             bgColor: '{colors.base}',

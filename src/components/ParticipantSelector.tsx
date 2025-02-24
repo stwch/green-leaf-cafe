@@ -10,10 +10,12 @@ export default function ParticipantSelector({ className }: Props) {
   const numbers = Array(10).fill(0);
   return (
     <div
+      id="participants"
       role="combobox"
       aria-haspopup="listbox"
       aria-labelledby="参加人数選択"
       aria-expanded={isOpen}
+      data-value={value}
       onClick={() => setOpen(!isOpen)}
       className={cx(
         className,

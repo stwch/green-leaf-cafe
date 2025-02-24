@@ -4,12 +4,17 @@ import { fontCVA } from '@styles/fontCVA';
 interface Props extends React.ComponentPropsWithoutRef<'label'> {
   label: string;
   labelInfo: string;
+  name: string;
+  isValid: boolean | null;
 }
-export default function InputText({ label, labelInfo, className }: Props) {
+export default function InputText({ label, labelInfo, name, isValid, className }: Props) {
+  const isDefault = isValid === null;
+  const isAttention = !isDefault && !isValid;
   return (
     <label
       className={cx(
         className,
+        isAttention && css({ bo: '4px solid {colors.accent}' }),
         css({
           d: 'block',
           w: { tab: '66.6%' },
@@ -39,14 +44,31 @@ export default function InputText({ label, labelInfo, className }: Props) {
       </span>
       <input
         type="text"
+        name={name}
         className={css({
           d: 'block',
           w: '100%',
-          bgColor: '{colors.base}',
+          bg: '{colors.base}',
           pd: '.25rem .5rem',
           radius: '4px',
+          '&:-webkit-autofill': {
+            boxShadow: '0 0 0 100px {colors.base} inset',
+          },
         })}
       />
+      {isAttention && (
+        <span
+          className={cx(
+            css({
+              d: 'block',
+              mt: '.25rem',
+              fontFamily: 'GenJyuuGoXP-M',
+              fontSize: '.75rem',
+            }),
+          )}>
+          必須の項目です
+        </span>
+      )}
     </label>
   );
 }
