@@ -1,10 +1,10 @@
-import BgImageLikeBox from '@components/BgImageLikeBox';
 import Body from '@components/Body';
 import CategoryLink from '@components/CategoryLink';
 import FeatureSection from '@components/FeatureSection';
 import InnerSiteLayout from '@components/InnerSiteLayout';
 import LazyLoadFontFace from '@components/LazyLoadFontFace';
 import MoreArticleLink from '@components/MoreArticleLink';
+import ServerSideVisual from '@components/ServerSideVisual';
 import LeafSVG from '@components/svg/LeafSVG';
 import createArticleData from '@helpers/createArticleData';
 import cookingIMG from '@images/catch/event-cooking.webp';
@@ -25,51 +25,64 @@ export default function EventsPage() {
       <LazyLoadFontFace fontName="GenJyuuGoXP-M" />
       <LazyLoadFontFace fontName="LovelyJackie" />
 
-      <BgImageLikeBox
-        priority
+      <ServerSideVisual
+        isMain
         alt="GreenLeafCafeの外観"
         src={cafeAppearanceIMG}
-        boxClassName={cx(
-          css({
-            h: '66.6vh',
-          }),
-        )}
       />
-      <InnerSiteLayout isBlogTopPage>
-        <section className={spaceCVA({ row: 'section', inner: 'x' })}>
-          <h1 className={cx(fontCVA({ title: 'pageJP' }), spaceCVA({ row: 'section' }))}>
-            自然とつながる
-            <span
-              className={css({
-                d: 'inline-block',
-                verticalAlign: 'baseline',
-              })}>
-              心と体が喜ぶ
-            </span>
-            <span
-              className={css({
-                d: 'inline-flex',
-                columnGap: '.25rem',
-                verticalAlign: 'baseline',
-              })}>
-              カフェブログ
-              <LeafSVG
-                className={cx(
-                  css({
-                    w: '3rem',
-                    color: '{colors.main}',
-                    mt: '-0.75rem',
-                  }),
-                )}
-              />
-            </span>
-          </h1>
-          <Body>
-            こんにちは！&nbsp;グリーンリーフカフェです。
-            <br />
-            このブログでは、私たちの日々の取り組みや、料理やイベントに込めた思いを皆さんにお届けします。
-          </Body>
-          <Body>オーガニック食材が持つ美味しさと健康への効果をぜひ知ってください！</Body>
+      <InnerSiteLayout>
+        <section className={spaceCVA({ row: 'section' })}>
+          <div
+            className={css({
+              w: 'fit-content',
+              mt: '-11.25rem',
+              pt: '2rem',
+              px: { base: '2rem', tab: '3rem' },
+              pos: 'relative',
+              zIndex: '1',
+              '&::before': {
+                content: '""',
+                d: 'block',
+                w: '100%',
+                h: '100%',
+                bgColor: '{colors.base}',
+                radius: '75% 200px 20% 0',
+                pos: 'absolute',
+                top: '50%',
+                left: '0',
+                transform: 'translateY(-50%)',
+                zIndex: '-1',
+              },
+            })}>
+            <h1 className={cx(fontCVA({ title: 'pageJP' }), spaceCVA({ row: 'section' }))}>
+              自然とつながる
+              <span className={css({ d: 'block' })}>心と体が喜ぶ</span>
+              <span
+                className={css({
+                  d: 'flex',
+                  columnGap: '.25rem',
+                })}>
+                カフェブログ
+                <LeafSVG
+                  className={cx(
+                    css({
+                      w: '3rem',
+                      color: '{colors.main}',
+                      mt: '-0.75rem',
+                    }),
+                  )}
+                />
+              </span>
+            </h1>
+          </div>
+          <div className={spaceCVA({ inner: 'x' })}>
+            <Body>
+              こんにちは！&nbsp;グリーンリーフカフェです。
+              <br />
+              このブログでは、私たちの日々の取り組みや、料理やイベントに込めた思いを皆さんにお届けします。
+            </Body>
+            <Body>オーガニック食材が持つ美味しさと健康への効果をぜひ知ってください！</Body>
+          </div>
         </section>
         <FeatureSection
           isJP

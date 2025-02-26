@@ -1,10 +1,10 @@
-import BgImageLikeBox from '@components/BgImageLikeBox';
 import Body from '@components/Body';
 import Copy from '@components/Copy';
 import FeatureLink from '@components/FeatureLink';
 import FeatureSection from '@components/FeatureSection';
 import InnerSiteLayout from '@components/InnerSiteLayout';
 import LazyLoadFontFace from '@components/LazyLoadFontFace';
+import ServerSideVisual from '@components/ServerSideVisual';
 import cafeInternalIMG from '@images/catch/cafe-internal.webp';
 import farmersIMG from '@images/catch/farmers.webp';
 import cafeAppearanceIMG from '@images/main-v/cafe-appearance.webp';
@@ -28,44 +28,43 @@ export default function Home() {
       <LazyLoadFontFace fontName="GenJyuuGoXP-M" />
       <LazyLoadFontFace fontName="LovelyJackie" />
 
-      <BgImageLikeBox
-        priority
+      <ServerSideVisual
+        isMain
         alt="GreenLeafCafeの外観"
         src={cafeAppearanceIMG}
-        boxClassName={css({
-          h: { base: 'calc(100svh - 5rem)', tab: 'calc(100svh - 3rem)' },
-          '&::after': {
-            content: '""',
-            d: 'block',
-            w: '115%',
-            h: '30%',
-            bgColor: '{colors.base}',
-            radius: '100%',
-            pos: 'absolute',
-            left: '50%',
-            bottom: '0',
-            transform: 'translate(-50%, 50%)',
-          },
-        })}
-        imgClassName={css({
-          pc: {
-            top: '-5%',
-          },
+        objectPosClassName={css({
+          objectPos: { pc: 'center 5%' },
         })}
       />
-      <Copy
-        className={cx(
-          spaceCVA({ row: 'section' }),
-          css({
-            w: 'fit-content',
-            mt: { base: '-3rem', tab: '-4rem' },
-            mx: 'auto',
-            pos: 'relative',
-            zIndex: '1',
-          }),
-        )}
-      />
+
       <InnerSiteLayout>
+        <div
+          className={cx(
+            spaceCVA({ row: 'section' }),
+            css({
+              w: 'fit-content',
+              mt: '-9.5rem',
+              pt: '2rem',
+              px: { base: '2rem', tab: '3rem' },
+              pos: 'relative',
+              zIndex: '1',
+              '&::before': {
+                content: '""',
+                d: 'block',
+                w: '100%',
+                h: '100%',
+                bgColor: '{colors.base}',
+                radius: '75% 200px 0 0',
+                pos: 'absolute',
+                top: '50%',
+                left: '0',
+                transform: 'translateY(-50%)',
+                zIndex: '-1',
+              },
+            }),
+          )}>
+          <Copy />
+        </div>
         <div
           className={cx(
             spaceCVA({ row: 'section', inner: 'x' }),

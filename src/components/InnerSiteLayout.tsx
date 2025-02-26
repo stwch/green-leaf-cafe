@@ -9,11 +9,8 @@ import type { ReactNode } from 'react';
 interface Props {
   children: ReactNode;
   isBlogMenu?: boolean;
-  isBlogTopPage?: boolean;
-  underJPPageTitle?: boolean;
 }
-export default function InnerSiteLayout({ children, isBlogMenu, underJPPageTitle, isBlogTopPage }: Props) {
-  const isBlogPage = isBlogMenu || isBlogTopPage;
+export default function InnerSiteLayout({ children, isBlogMenu }: Props) {
   return (
     <>
       <MenuBtn
@@ -46,7 +43,6 @@ export default function InnerSiteLayout({ children, isBlogMenu, underJPPageTitle
       )}
       <div
         className={cx(
-          !isBlogPage && css({ mt: underJPPageTitle ? '-1.625rem' : '-1.75rem' }),
           css({
             tab: {
               w: '100%',

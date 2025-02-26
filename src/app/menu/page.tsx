@@ -1,10 +1,10 @@
-import BgImageLikeBox from '@components/BgImageLikeBox';
 import FeatureSection from '@components/FeatureSection';
 import InnerSiteLayout from '@components/InnerSiteLayout';
 import LazyLoadFontFace from '@components/LazyLoadFontFace';
 import MenuSlider from '@components/MenuSlider';
 import PageTitle from '@components/PageTitle';
 import SetMenuCard from '@components/SeMenuCard';
+import ServerSideVisual from '@components/ServerSideVisual';
 import menuIMG from '@images/main-v/menu-visual.webp';
 import { css, cx } from '@styled-system/css';
 import { spaceCVA } from '@styles/spaceCVA';
@@ -17,24 +17,17 @@ export default function MenuPage() {
       <LazyLoadFontFace fontName="GenJyuuGoXP-R" />
       <LazyLoadFontFace fontName="Anzu" />
 
-      <BgImageLikeBox
-        priority
+      <ServerSideVisual
         alt="パスタ、タルト、ドリンクが並んだ写真"
         src={menuIMG}
-        boxClassName={css({
-          d: 'flex',
-          alignItems: 'end',
-          h: '66.6vh',
-        })}
-        imgClassName={css({
-          pc: {
-            top: '10%',
-          },
+        objectPosClassName={css({
+          objectPos: { tab: 'center 35%', pc: 'center 55%' },
         })}
       />
-      <PageTitle pageName="Menu" />
 
       <InnerSiteLayout>
+        <PageTitle pageName="Menu" />
+
         <FeatureSection
           title="Foods"
           className={spaceCVA({ row: 'firstSection' })}>

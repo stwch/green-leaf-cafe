@@ -1,8 +1,8 @@
-import BgImageLikeBox from '@components/BgImageLikeBox';
 import EventCancelForm from '@components/EventCancelForm';
 import FeatureSection from '@components/FeatureSection';
 import InnerSiteLayout from '@components/InnerSiteLayout';
 import PageTitle from '@components/PageTitle';
+import ServerSideVisual from '@components/ServerSideVisual';
 import cafeAppearanceIMG from '@images/main-v/cafe-appearance.webp';
 import { css, cx } from '@styled-system/css';
 import { spaceCVA } from '@styles/spaceCVA';
@@ -14,22 +14,19 @@ import '../../../../public/fonts/fontface/LovelyJackie.css';
 export default function CancelFormPage() {
   return (
     <section>
-      <BgImageLikeBox
-        priority
+      <ServerSideVisual
         alt="GreenLeafCafe 外観"
         src={cafeAppearanceIMG}
-        boxClassName={css({
-          h: '33.3vh',
-        })}
-        imgClassName={css({
-          top: { tab: '15%', pc: '55%' },
+        objectPosClassName={css({
+          objectPos: { tab: 'center 15%', pc: 'center 55%' },
         })}
       />
-      <PageTitle
-        isJP
-        pageName="キャンセルフォーム"
-      />
-      <InnerSiteLayout underJPPageTitle>
+      <InnerSiteLayout>
+        <PageTitle
+          isJP
+          pageName="キャンセルフォーム"
+        />
+
         <FeatureSection
           isJP
           title="フォーム"

@@ -9,6 +9,7 @@ import InnerSiteLayout from '@components/InnerSiteLayout';
 import LazyLoadFontFace from '@components/LazyLoadFontFace';
 import PageTitle from '@components/PageTitle';
 import SectionTitle from '@components/SectionTitle';
+import ServerSideVisual from '@components/ServerSideVisual';
 import WithLeafList from '@components/WithLeafList';
 import cookingHistory2IMG from '@images/catch/cooking-history.webp';
 import cookingHistory1IMG from '@images/catch/event-cooking.webp';
@@ -31,23 +32,20 @@ export default function EventIdPage() {
       <LazyLoadFontFace fontName="GenJyuuGoXP-M" />
       <LazyLoadFontFace fontName="LovelyJackie" />
 
-      <BgImageLikeBox
-        priority
+      <ServerSideVisual
         alt="地元野菜を並べて料理しているイラスト"
         src={cookingIMG}
-        boxClassName={css({
-          h: '66.6vh',
-        })}
-        imgClassName={css({
-          top: { tab: '15%', pc: '55%' },
+        objectPosClassName={css({
+          objectPos: { tab: 'center 35%', pc: 'center 25%' },
         })}
       />
-      {/* <PageTitle pageName="Event Details" /> */}
-      <PageTitle
-        isJP
-        pageName="イベント詳細"
-      />
-      <InnerSiteLayout underJPPageTitle>
+
+      <InnerSiteLayout>
+        <PageTitle
+          isJP
+          pageName="イベント詳細"
+        />
+
         <SectionTitle
           isJP
           withLeaf={false}

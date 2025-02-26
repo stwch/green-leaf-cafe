@@ -2,11 +2,11 @@ import ArticleBody from '@components/ArticleBody';
 import ArticleDate from '@components/ArticleDate';
 import ArticleImage from '@components/ArticleImage';
 import ArticleSection from '@components/ArticleSection';
-import BgImageLikeBox from '@components/BgImageLikeBox';
 import FeatureSection from '@components/FeatureSection';
 import InnerSiteLayout from '@components/InnerSiteLayout';
 import LazyLoadFontFace from '@components/LazyLoadFontFace';
 import MoreArticleLink from '@components/MoreArticleLink';
+import ServerSideVisual from '@components/ServerSideVisual';
 import LeafSVG from '@components/svg/LeafSVG';
 import createArticleData from '@helpers/createArticleData';
 import cookStartIMG from '@images/catch/cooking-start.webp';
@@ -30,13 +30,9 @@ export default function BlogIdPage() {
       <LazyLoadFontFace fontName="GenJyuuGoXP-M" />
       <LazyLoadFontFace fontName="LovelyJackie" />
 
-      <BgImageLikeBox
-        priority
+      <ServerSideVisual
         alt="地元野菜を楽しむ料理教室の様子"
         src={cookingIMG}
-        boxClassName={css({
-          h: '66.6vh',
-        })}
       />
       <h1
         className={cx(

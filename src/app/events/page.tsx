@@ -1,15 +1,16 @@
-import BgImageLikeBox from '@components/BgImageLikeBox';
 import EventLink from '@components/EventLink';
 import FeatureSection from '@components/FeatureSection';
 import InnerSiteLayout from '@components/InnerSiteLayout';
 import LazyLoadFontFace from '@components/LazyLoadFontFace';
 import PageTitle from '@components/PageTitle';
+import ServerSideVisual from '@components/ServerSideVisual';
 import cookingIMG from '@images/main-v/cooking-image.webp';
 import eventsIMG from '@images/main-v/event-visual.webp';
 import { css, cx } from '@styled-system/css';
 import { spaceCVA } from '@styles/spaceCVA';
 import '../../../public/fonts/fontface/Anzu.css';
 import '../../../public/fonts/fontface/LovelyJackie.css';
+
 export default function EventsPage() {
   return (
     <section>
@@ -17,19 +18,16 @@ export default function EventsPage() {
       <LazyLoadFontFace fontName="GenJyuuGoXP-R" />
       <LazyLoadFontFace fontName="GenJyuuGoXP-M" />
 
-      <BgImageLikeBox
-        priority
+      <ServerSideVisual
         alt="地元野菜を販売するマルシェの様子"
         src={eventsIMG}
-        boxClassName={css({
-          h: '66.6vh',
-        })}
-        imgClassName={css({
-          top: { tab: '15%', pc: '55%' },
+        objectPosClassName={css({
+          objectPos: { tab: 'center 30%', pc: 'center 25%' },
         })}
       />
-      <PageTitle pageName="Events" />
+
       <InnerSiteLayout>
+        <PageTitle pageName="Events" />
         <FeatureSection
           title="今月の開催予定"
           isJP
@@ -103,7 +101,7 @@ export default function EventsPage() {
               }),
             )}>
             <EventLink
-              href="/events/to-id"
+              href="/events/detail"
               name="地元野菜を楽しむ料理教室"
               isoDateString="2025-03-01"
               time={{
