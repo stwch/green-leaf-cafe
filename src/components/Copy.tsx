@@ -7,14 +7,7 @@ const leafW = '4rem';
 interface Props extends React.ComponentPropsWithoutRef<'strong'> {}
 export default function ({ className }: Props) {
   return (
-    <h1
-      className={cx(
-        className,
-        fontCVA({ title: 'copy' }),
-        css({
-          pl: '2.5rem',
-        }),
-      )}>
+    <h1 className={cx(className, fontCVA({ title: 'copy' }))}>
       地域とつながる
       <span
         className={css({
@@ -28,8 +21,8 @@ export default function ({ className }: Props) {
           className={css({
             color: '{colors.main}',
             pos: 'absolute',
-            bottom: '.5rem',
-            right: 0,
+            bottom: '.75rem',
+            right: '0',
             w: leafW,
           })}
         />
