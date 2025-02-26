@@ -5,6 +5,7 @@ import FeatureSection from '@components/FeatureSection';
 import InnerSiteLayout from '@components/InnerSiteLayout';
 import LazyLoadFontFace from '@components/LazyLoadFontFace';
 import ServerSideVisual from '@components/ServerSideVisual';
+import LeafSVG from '@components/svg/LeafSVG';
 import cafeInternalIMG from '@images/catch/cafe-internal.webp';
 import farmersIMG from '@images/catch/farmers.webp';
 import cafeAppearanceIMG from '@images/main-v/cafe-appearance.webp';
@@ -65,65 +66,55 @@ export default function Home() {
           )}>
           <Copy />
         </div>
-        <div
-          className={cx(
-            spaceCVA({ row: 'section', inner: 'x' }),
-            css({
-              pc: {
-                d: 'grid',
-                gridTemplateColumns: 'repeat(3, auto)',
-                pos: 'relative',
-              },
-            }),
-          )}>
-          <Image
-            alt="GreenLeafCafeの内観"
-            src={cafeInternalIMG}
-            className={css({
-              overflow: 'hidden',
-              radius: { base: '100% 100% 0 0', pc: '4px 0 0 0' },
-            })}
-          />
-          <Body
+        <FeatureSection
+          isMix
+          title="GreenLeafCafe の特徴">
+          <Body className={spaceCVA({ inner: 'x', row: 'object' })}>
+            『&nbsp;GreenLeafCafe&nbsp;』&nbsp;は地元の農家と協力し、新鮮でオーガニックな食材を使用した料理を提供する、地域密着型のカフェです
+          </Body>
+          <div
             className={cx(
-              spaceCVA({ inner: 'x' }),
+              spaceCVA({ row: 'section', inner: 'x' }),
               css({
-                py: { minToPc: '.5rem' },
+                pos: 'relative',
+                zIndex: '1',
                 pc: {
-                  w: '66%',
-                  radius: '100px 100px 0 0',
-                  overflow: 'hidden',
-                  pos: 'absolute',
-                  bottom: '-2rem',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  px: '1.5rem',
-                  pt: '.5rem',
-                  '&::before': {
-                    content: '""',
-                    d: 'block',
-                    w: '100%',
-                    h: '2.1rem',
-                    bgColor: '{colors.base}',
-                    pos: 'absolute',
-                    left: '0',
-                    bottom: '2rem',
-                    zIndex: '-1',
-                  },
+                  d: 'grid',
+                  gridTemplateColumns: 'repeat(3, auto)',
+                  columnGap: '{spacing.inner.x}',
                 },
               }),
             )}>
-            『&nbsp;GreenLeafCafe&nbsp;』&nbsp;は地元の農家と協力し、新鮮でオーガニックな食材を使用した料理を提供する、地域密着型のカフェです
-          </Body>
-          <Image
-            alt="地元農家とカフェオーナーの集合写真"
-            src={farmersIMG}
-            className={css({
-              overflow: 'hidden',
-              radius: { base: '0 0 100% 100%', pc: '0 4px 0 0' },
-            })}
-          />
-        </div>
+            <Image
+              alt="GreenLeafCafeの内観"
+              src={cafeInternalIMG}
+              className={css({
+                radius: '4px',
+                minToPc: { mb: '{spacing.inner.x}' },
+              })}
+            />
+            <LeafSVG
+              className={css({
+                color: '{colors.main}',
+                w: '2rem',
+                bgColor: '{colors.base}',
+                pd: '.25rem',
+                radius: '100px',
+                pos: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-60%, -50%)',
+              })}
+            />
+            <Image
+              alt="地元農家とカフェオーナーの集合写真"
+              src={farmersIMG}
+              className={css({
+                radius: '4px',
+              })}
+            />
+          </div>
+        </FeatureSection>
         <div
           className={cx(
             spaceCVA({ row: 'section' }),

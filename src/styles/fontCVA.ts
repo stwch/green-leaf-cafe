@@ -27,6 +27,10 @@ export const fontCVA = cva({
         fontFamily: 'Anzu',
         fontSize: '2.25rem',
       },
+      sectionMIX: {
+        fontFamily: 'LovelyJackie, Anzu',
+        fontSize: '2.25rem',
+      },
       menu: {
         fontFamily: 'GenJyuuGoXP-M',
         lineHeight: '1.5',

@@ -6,14 +6,15 @@ const leafW = '1.5rem';
 
 interface Props extends React.ComponentPropsWithoutRef<'h2'> {
   isJP?: boolean;
+  isMix?: boolean;
   withLeaf?: boolean;
 }
-export default function ({ className, children, isJP, withLeaf }: Props) {
+export default function ({ className, children, isJP, isMix, withLeaf }: Props) {
   return (
     <h2
       className={cx(
         className,
-        fontCVA({ title: isJP ? 'sectionJP' : 'sectionEN' }),
+        fontCVA({ title: isMix ? 'sectionMIX' : isJP ? 'sectionJP' : 'sectionEN' }),
         css({
           w: 'fit-content',
           pr: leafW,
