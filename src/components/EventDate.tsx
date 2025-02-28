@@ -1,8 +1,8 @@
 import type EventLink from '@components/EventLink';
+import getDateInfo from '@helpers/getDateInfo';
 import { css, cx } from '@styled-system/css';
 import { fontCVA } from '@styles/fontCVA';
 import type { ComponentProps } from 'react';
-import getDateInfo from '../helpers/getDateInfo';
 
 interface Props extends React.ComponentPropsWithoutRef<'div'> {
   viewHeader?: boolean;
