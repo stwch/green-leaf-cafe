@@ -1,8 +1,8 @@
 'use client';
 
+import { eventListApiUrl } from '@hooks/useEventList';
 import { useEffect } from 'react';
 import { preload } from 'swr';
-import { eventListApiUrl } from '../hooks/useEventList';
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
