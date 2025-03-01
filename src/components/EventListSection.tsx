@@ -74,7 +74,7 @@ export default function EventListSection({ className }: Props) {
             return (
               <EventLink
                 key={event.id}
-                href={`/events/detail?=${event.id}`}
+                href={`/events/detail?eid=${event.id}`}
                 name={event_name}
                 isoDateString={event_day}
                 time={{
@@ -97,9 +97,10 @@ interface EventsByMonth {
   nextMonth?: any[];
 }
 function _extractEventsByMonth(data: any): EventsByMonth | null {
-  const result = Object.values(_getMonth()).reduce((accu, month) => {
+  const result = Object.entries(_getMonth()).reduce((accu, monthEntry) => {
+    const [monthKey, month] = monthEntry;
     const events = data[month];
-    if (events) accu = { ...accu, [month]: events };
+    if (events) accu = { ...accu, [monthKey]: events };
     return accu;
   }, {});
 
