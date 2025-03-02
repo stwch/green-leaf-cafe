@@ -22,6 +22,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           lineHeight: '1',
           overflowX: 'hidden',
           bgColor: '{colors.base}',
+          whiteSpace: 'pre-wrap',
           pos: 'relative',
           '&::after': {
             content: '""',
