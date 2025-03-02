@@ -33,6 +33,7 @@ export default function EventLink({
           bgColor: '{colors.main}',
           pd: '.125rem',
           d: 'grid',
+          gridTemplateRows: 'auto 1fr auto auto',
           rowGap: '.125rem',
           boxShadow: '{shadows.card}',
         })}>
@@ -61,14 +62,6 @@ export default function EventLink({
             src={src}
           />
         </CoverImgBox>
-        {/* <BgImageLikeBox
-        alt={alt}
-        src={src}
-        boxClassName={css({
-          aspectRatio: '1/1',
-          radius: '4px',
-        })}
-      /> */}
         <p
           className={cx(
             fontCVA({ link: 'eventLink' }),
