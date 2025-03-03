@@ -56,7 +56,7 @@ export default function EventSubmitCheckModal({ eventFormData }: Props) {
             <p>参加人数</p>
             <p className={css({ fontFamily: 'GenJyuuGoXP-R' })}>
               {eventFormData.participants}
-              <span className={css({ fontSize: '.75rem', ml: '.125rem', verticalAlign: 'middle' })}>人</span>
+              <span className={css({ fontSize: '.75rem', ml: '.125rem', verticalAlign: 'middle' })}>名</span>
             </p>
           </div>
         </div>
