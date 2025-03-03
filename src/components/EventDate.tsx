@@ -32,10 +32,12 @@ export default function EventDate({ className, isoDateString, time, viewHeader }
             isHolidayColor && css({ color: '{colors.sunday}' }),
             isNormalDay && css({ color: '{colors.brown}' }),
             css({
+              w: 'fit-content',
               bgColor: '{colors.base}',
               radius: '4px',
               fontFamily: 'GenJyuuGoXP-M',
               lineHeight: '1.25',
+              px: '.25rem',
               mb: '.375rem',
             }),
           )}>

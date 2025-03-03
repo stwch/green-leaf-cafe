@@ -2,53 +2,41 @@
 
 import EventLink from '@components/EventLink';
 import FeatureSection from '@components/FeatureSection';
-import Loading from '@components/Loading';
+import LoadingWithText from '@components/LoadingWithText';
 import useEventList from '@hooks/useEventList';
 import { css, cx } from '@styled-system/css';
 import { spaceCVA } from '@styles/spaceCVA';
 
 interface Props extends React.ComponentPropsWithoutRef<'div'> {}
 export default function EventListSection({ className }: Props) {
-  const { data, isLoading } = useEventList();
-
-  if (isLoading)
+  const { data, isLoading, error } = useEventList();
+  if (isLoading) {
     return (
       <div
         className={cx(
           className,
-          spaceCVA({ row: 'firstSection', inner: 'x' }),
+          spaceCVA({ row: 'section', inner: 'x' }),
           css({
             h: '100vh',
           }),
         )}>
-        <div
-          className={css({
-            d: 'flex',
-            columnGap: '.25rem',
-          })}>
-          <div
-            className={css({
-              fontFamily: 'Anzu',
-              fontSize: '2rem',
-            })}>
-            イベント取得中
-          </div>
-          <Loading className={css({ w: '1.5rem' })} />
-        </div>
+        <LoadingWithText text="イベント取得中" />
       </div>
     );
+  }
 
   const eventData = _extractEventsByMonth(data);
-  if (!eventData)
+  if (!eventData || error) {
     return (
       <div
         className={css({
           fontFamily: 'Anzu',
-          fontSize: '2rem',
+          fontSize: '1.5rem',
         })}>
-        まだイベントがありません
+        開催予定のイベントがありませんでした。
       </div>
     );
+  }
   console.log(eventData);
   return Object.entries(eventData).map((entry: [string, any[]], i) => {
     const [month, events] = entry;

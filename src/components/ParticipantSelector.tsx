@@ -3,11 +3,13 @@ import { css, cx } from '@styled-system/css';
 import { fontCVA } from '@styles/fontCVA';
 import { useState } from 'react';
 
-interface Props extends React.ComponentPropsWithoutRef<'div'> {}
-export default function ParticipantSelector({ className }: Props) {
+interface Props extends React.ComponentPropsWithoutRef<'div'> {
+  remainingCapacity: number;
+}
+export default function ParticipantSelector({ className, remainingCapacity }: Props) {
   const [isOpen, setOpen] = useState(false);
   const [value, setValue] = useState(1);
-  const numbers = Array(10).fill(0);
+  const numbers = Array(remainingCapacity).fill(0);
   return (
     <div
       id="participants"
@@ -73,7 +75,7 @@ export default function ParticipantSelector({ className }: Props) {
             }),
           )}>
           {value}
-          <span className={css({ fontSize: '.75rem', verticalAlign: 'bottom' })}>&nbsp;人</span>
+          <span className={css({ fontSize: '.75rem', verticalAlign: 'bottom' })}>&nbsp;名</span>
         </div>
         {isOpen && (
           <div

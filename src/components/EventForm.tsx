@@ -17,14 +17,19 @@ export type EventFormData = {
   name: string;
   email: string;
   participants: string;
-  eventID?: string;
+  eventID: string;
+  eventName: string;
 };
 type EventFormValid = {
   name: boolean | null;
   email: boolean | null;
 };
-interface Props extends React.ComponentPropsWithoutRef<'form'> {}
-export default function EventForm({}: Props) {
+interface Props extends React.ComponentPropsWithoutRef<'form'> {
+  eventID: string | number;
+  eventName: string;
+  remainingCapacity: number;
+}
+export default function EventForm({ eventID, eventName, remainingCapacity }: Props) {
   const [eventFormData, setFormData] = useState<EventFormData | null>(null);
   const [valid, setValid] = useState<EventFormValid>({ name: null, email: null });
   const [resStatus, setResStatus] = useState<string>('');
@@ -79,7 +84,22 @@ export default function EventForm({}: Props) {
           alignItems: 'end',
           mb: '2rem',
         })}>
-        <ParticipantSelector />
+        <div
+          className={css({
+            pos: 'relative',
+          })}>
+          <ParticipantSelector remainingCapacity={remainingCapacity} />
+          <p
+            className={css({
+              fontFamily: 'GeJyuuGoXP-M',
+              w: '100%',
+              pos: 'absolute',
+              top: '.25rem',
+              left: 'calc(100% + .25rem)',
+            })}>
+            あと{remainingCapacity}名
+          </p>
+        </div>
         <PrantSVG className={css({ w: '3rem', color: '{colors.main}' })} />
       </div>
       <button
@@ -99,7 +119,7 @@ export default function EventForm({}: Props) {
           if (!existsName || !existsEmail) return;
 
           const participants = formData.get('participants') as string;
-          setFormData({ name, email, participants, eventID: 'event-1234' });
+          setFormData({ name, email, participants, eventID: `${eventID}`, eventName });
 
           const dialogDOM = document.getElementById(eventSubmitCheckModalID) as HTMLDialogElement;
           dialogDOM.showModal();
