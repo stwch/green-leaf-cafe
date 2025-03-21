@@ -1,18 +1,14 @@
-<img src="https://raw.githubusercontent.com/stwch/stwch/refs/heads/main/green-leaf-cafe-top.webp" alt="GreenLeafCafe" style="width:50%;max-width:300px;" />
-
 # GreenLeafCafe
-このサイトは、店舗情報を学習した ChatGPT に制作依頼をしてもらい、制作したポートフォリオサイトです。<br />
-IT に詳しくない設定でヒアリングを行い、要件、キャッチコピー、テキストなどを定義しました。<br />
-ブログ記事、イベント内容、画像などは、AI がユーザーとして生成したものを使用しています。
-
-サイト → 現在、制作中です
+<img src="https://raw.githubusercontent.com/stwch/stwch/refs/heads/main/images/green-leaf-cafe-top.webp" alt="GreenLeafCafe" width="640" />
+イベント予約・管理システムを搭載した架空のカフェのホームページです。<br>
+現在開発中で、ブログ機能の実装完了後に公開する予定です。<br>
 
 <br />
 <br />
 
-## 機能
-- イベント予約・管理システム
-- ブログ ← 現在、WordPress で構築中
+## 開発予定
+1. プロジェクトドキュメント作成
+2. ブログ機能実装
 
 <br />
 <br />
